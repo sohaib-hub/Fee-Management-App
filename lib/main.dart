@@ -1,94 +1,263 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:project_classes_secreen/splash%20screen.dart';
+import 'package:project_classes_secreen/student_list-screen.dart';
 
-void main() {
+Future main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  Random random = Random();
-  int x = 0;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Expanded(
-      child: Scaffold(
-          appBar: AppBar(
-            title: Center(child: const Text('lottry App')),
-          ),
-          body: Center(
-            child: Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('lottry app number is $x'),
-                  const SizedBox(height: 20),
-                  Container(
-                    height: x >= 4 ? 600 : 200,
-                    width: 300,
-                    decoration: BoxDecoration(
-                      color: x <= 4
-                          ? Colors.green.withOpacity(.3)
-                          : Colors.teal.withOpacity(.6),
-                      borderRadius: BorderRadius.circular(3),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: x >= 4
-                          ? Center(
-                              child: Expanded(
-                                child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      const Icon(
-                                        Icons.done_all,
-                                        color: Colors.green,
-                                        size: 40,
-                                      ),
-                                      Text(
-                                          'Conregulation you  win the lottry your number is $x '),
-                                    ]),
-                              ),
-                            )
-                          : Expanded(
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    const Icon(
-                                      Icons.error,
-                                      color: Colors.red,
-                                      size: 40,
-                                    ),
-                                    Text(
-                                        'sorry you loss the lottry , your number is $x '),
-                                  ]),
-                            ),
-                    ),
-                  )
-                ],
+              theme: ThemeData(
+                primarySwatch: Colors.deepPurple,
+
               ),
-            ),
-          ),
-          floatingActionButton: FloatingActionButton(
-              onPressed: (() {
-                x = random.nextInt(10);
-                setState(() {});
-              }),
-              child: const Icon(
-                Icons.refresh,
-              ))),
-    ));
+      home: const ClassesPage()
+    );
   }
 }
+
+class ClassesPage extends StatefulWidget {
+  const ClassesPage({Key? key}) : super(key: key);
+
+  @override
+  State<ClassesPage> createState() => _ClassesPageState();
+}
+
+class _ClassesPageState extends State<ClassesPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.deepPurple.shade100,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Class List'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) => StudentList())));
+                },
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Prep",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Nersary",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("One",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Two",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Three",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Four ",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Fifth",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Sixth",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Seventh",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Eighth",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Nineth",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:15,horizontal: 12),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.deepPurple.shade300,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.label,color: Colors.white,size: 30,),
+                    title: Text("Tenth",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                  ),
+                ),
+              ),
+            ),
+
+
+          ],
+
+        ),
+      ),
+
+    );
+  }
+}
+
+

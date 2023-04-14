@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "78671808049",
+    "project_id": "project-screen-169cb",
+    "storage_bucket": "project-screen-169cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78671808049:android:25abc15c3d89266f537710",
+        "android_client_info": {
+          "package_name": "com.sohaib.project_classes_secreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78671808049-hn7hkbv9gfo2aqc5m1icr5lafns4h5b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-oNBsk3MXY2QUti2NXWjGgVjE1C5I2_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78671808049-hn7hkbv9gfo2aqc5m1icr5lafns4h5b7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
